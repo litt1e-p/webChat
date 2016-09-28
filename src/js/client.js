@@ -43,7 +43,7 @@
 
 		updateSysMsg:function(o, action){
 			var onlineUsers = o.onlineUsers;
-			var onlineCount = o.onlineCount;
+			var onlineCount = o.onlineUsrCount > 0 ? o.onlineUsrCount : 0;
 			var user = o.user;
 			var userhtml = '';
 			var separator = '';
@@ -85,7 +85,7 @@
 			this.msgObj.style.minHeight = (this.screenheight - db.clientHeight + this.msgObj.clientHeight) + "px";
 			this.scrollToBottom();
 
-			this.socket = io.connect('ws://realtime.plhwin.com:3000');
+			this.socket = io.connect('ws://127.0.0.1:8081');
 
 			this.socket.emit('login', {userid:this.userid, username:this.username});
 
